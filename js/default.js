@@ -1,5 +1,5 @@
  var windowWidth = window.innerWidth, windowHeight = window.innerHeight;
- var camera,renderer,scene;
+ var camera,renderer,scene, leap;
  window.onload = function (){
     console.log("onload");
     Init();
@@ -7,6 +7,17 @@
  };
 
 function Init(){
+  
+        leap = new THREE.LeapMotion();
+  
+        leap.handleFrame = function ( frame ) {
+          if ( frame.hasHandsVisible() ) {
+              // Update scene here.
+              // var palmPosition = frame.getDominantHand().fingers[0].palm.position;
+              // myObject.position.set(palmPosition.x, palmPosition.y, palmPosition.z);
+          }
+        };
+        
         scene = new THREE.Scene();
   
        //setup camera
