@@ -1,4 +1,8 @@
-THREE.LeapMotion Halo Template
+LeapMotion Halo Template
+================
+This Halo Template includes THREE.LeapMotion to make prototyping with LeapMotion a one step proccess.
+
+THREE.LeapMotion
 ================
 
 Interface adapter for the LeapMotion to make it easier to work with inside of THREE.JS
