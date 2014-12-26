@@ -69,7 +69,7 @@ function addObjectsToScene(){
               var palmPosition = frame.getDominantHand().palm.position;
               // myObject.position.set(palmPosition.x, palmPosition.y, palmPosition.z);
 //             console.log(palmPosition.z);
-            graph.position.set(palmPosition.x/100, palmPosition.z/100, (palmPosition.y/100) + 17.5);
+            graph.position.set(palmPosition.x/100, -palmPosition.z/100, (palmPosition.y/100) + 17.5);
           }
         };
 }
