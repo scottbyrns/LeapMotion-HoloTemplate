@@ -10,13 +10,6 @@ function Init(){
   
         leap = new THREE.LeapMotion();
   
-        leap.handleFrame = function ( frame ) {
-          if ( frame.hasHandsVisible() ) {
-              // Update scene here.
-              // var palmPosition = frame.getDominantHand().fingers[0].palm.position;
-              // myObject.position.set(palmPosition.x, palmPosition.y, palmPosition.z);
-          }
-        };
         
         scene = new THREE.Scene();
   
@@ -66,8 +59,19 @@ function Init(){
 
 function addObjectsToScene(){
     //Add your objects here
-    var graph = new THREE.Mesh(new THREE.SphereGeometry(8, 30, 10), new   THREE.MeshLambertMaterial({color:0xffffff}));
+    var graph = new THREE.Mesh(new THREE.SphereGeometry(3, 30, 10), new   THREE.MeshLambertMaterial({color:0xffffff}));
 	  scene.add(graph);
+  
+  
+        leap.handleFrame = function ( frame ) {
+          if ( frame.hasHandsVisible() ) {
+              // Update scene here.
+              var palmPosition = frame.getDominantHand().palm.position;
+              // myObject.position.set(palmPosition.x, palmPosition.y, palmPosition.z);
+//             console.log(palmPosition.z);
+            graph.position.set(palmPosition.x/100, palmPosition.z/100, (palmPosition.y/100) + 17.5);
+          }
+        };
 }
 
 function addLights(){
